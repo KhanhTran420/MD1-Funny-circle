@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ đường tròn vs màu ngẫy nhiên</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1200px" height="600px" style="border: 1px solid #d3d3d3;"></canvas>
+
+
+<script>
+    class Circle {
+        constructor(x, y, radius,) {
+            this.x = x
+            this.y = y
+            this.radius = radius
+
+        }
+
+
+        CreatCircle(){
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            let radius = Math.floor(Math.random() * 50)
+            let color = getRandomColor();
+            ctx.beginPath()
+            ctx.arc(this.x,this.y,this.radius,0,2*Math.PI);
+            ctx.fillStyle = getRandomColor();
+            ctx.fill();
+        }
+    }
+    function getRandomHex(){
+        return Math.floor(Math.random()*100)
+    }
+    function getRandomColor(){
+        let red = getRandomHex()
+        let green = getRandomHex()
+        let blue = getRandomHex()
+        return "rgb(" + red + " , " + blue + " , " + green + ")";
+    }
+    let drawCircle = new Circle(100,100,Math.floor(Math.random()*50))
+
+    drawCircle.CreatCircle()
+
+</script>
+</body>
+</html>
