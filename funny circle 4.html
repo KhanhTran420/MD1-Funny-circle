@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vẽ hình tròn ở vị trí ngẫu nhiên</title>
+</head>
+<body>
+
+<canvas id="myCanvas" width="1200px" height="600px" style="border: 1px solid #d3d3d3;"></canvas>
+
+
+<script>
+      class Circle {
+          constructor(x, y, radius,) {
+              this.x = x
+              this.y = y
+              this.radius = radius
+
+          }
+
+
+          CreatCircle(){
+              let ctx = document.getElementById("myCanvas").getContext("2d");
+              let radius = Math.floor(Math.random() * 50)
+              let color = getRandomColor();
+              let x = Math.random()*1200
+              let y = Math.random()*600
+              ctx.beginPath()
+              ctx.arc(this.x,this.y,this.radius,0,2*Math.PI);
+              ctx.fillStyle = getRandomColor();
+              ctx.fill();
+          }
+      }
+      function getRandomHex(){
+          return Math.floor(Math.random()*100)
+      }
+      function getRandomColor(){
+          let red = getRandomHex()
+          let green = getRandomHex()
+          let blue = getRandomHex()
+          return "rgb(" + red + " , " + blue + " , " + green + ")";
+      }
+      let Circlerandom = new Circle(Math.random()*1200,Math.random()*600,Math.floor(Math.random()*50))
+      let Circlerandom1 = new Circle(Math.random()*1200,Math.random()*600,Math.floor(Math.random()*50))
+
+      Circlerandom.CreatCircle()
+      Circlerandom1.CreatCircle()
+  // Tạo ra 2 3 4 quả bóng thì lét thêm biến mới rồi khai báo mảng
+  </script>
+</body>
+</html>

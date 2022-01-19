@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo vô số hình tròn</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1200px" height="600px" style="border: 1px solid #d3d3d3;"></canvas>
+
+
+<script>
+    function Circle (x,y,radius){
+
+            this.x = x
+            this.y = y
+            this.radius = radius
+
+        }
+
+
+        function CreatCircle(){
+            let ctx = document.getElementById("myCanvas").getContext("2d");
+            let radius = Math.floor(Math.random() * 50)
+            let color = getRandomColor();
+            let x = Math.random()*1200
+            let y = Math.random()*600
+            let Circlerandom = new Circle(x,y,radius)
+            ctx.beginPath()
+            ctx.arc(Circlerandom.x,Circlerandom.y,Circlerandom.radius,0,2*Math.PI);
+            ctx.fillStyle = getRandomColor();
+            ctx.fill();
+        }
+
+    function getRandomHex(){
+        return Math.floor(Math.random()*100)
+    }
+    function getRandomColor(){
+        let red = getRandomHex()
+        let green = getRandomHex()
+        let blue = getRandomHex()
+        return "rgb(" + red + " , " + blue + " , " + green + ")";
+
+        }
+
+     function createMultipleCircle(){
+         for (let i = 0; i < 10; i++) {
+             CreatCircle()
+         }
+     }
+
+createMultipleCircle();
+
+</script>
+</body>
+</html>
